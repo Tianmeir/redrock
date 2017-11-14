@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list"></ul>
+
+<script type="text/javascript">
+
+function sortNumber(a, b)
+{
+return a - b
+}
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+
+(function () {
+
+	var list = '';
+	var arr = new Array()
+	var n = 0;
+
+	for (var i = 0; i < aqiData.length; i++) {
+		arr[i] = aqiData[i][1];
+
+		if(arr[i]>60){
+		var sort = arr.sort(sortNumber);
+		n = n + 1;
+		list +='<li>第'+n+'名:'+aqiData[i][0]+"，"+arr[i]+"</li>";
+
+		document.getElementById('aqi-list').innerHTML = list;
+	}
+}
+})();
+</script>
+
+
+<!-- 
+百度+w3+菜鸟教程后所学到的知识
+
+数据排序————————————————————————
+<script>
+var arr=new Array("数据一","数据二","数据三","数据四","数据五");
+var list="";
+for (var i=0;i<arr.length;i++)
+{
+  list +="<li>"+arr[i]+"</li>";
+}
+document.getElementById('box').innerHTML = list;
+</script>
+<ul id='box'></ul>
+
+for循环————————————————————————
+<script>  
+cars=["BMW","Volvo","Saab","Ford"];
+for (var i=0;i<cars.length;i++){
+	document.write(cars[i] + "<br>");  
+}
+</script>
+结果显示：
+BMW 
+Volvo 
+Saab 
+Ford
+
+for循环————————————————————————
+<script type="text/javascript">
+
+function sortNumber(a, b)
+{
+return a - b
+}
+
+var arr = new Array(6)
+arr[0] = "10"
+arr[1] = "5"
+arr[2] = "40"
+arr[3] = "25"
+arr[4] = "1000"
+arr[5] = "1"
+
+document.write(arr + "<br />")
+document.write(arr.sort(sortNumber))
+
+</script>
+
+ -->
+
+</body>
+</html>
